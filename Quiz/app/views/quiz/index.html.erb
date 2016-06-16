@@ -1,0 +1,16 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<h1>Start Quiz</h1>
+<%= form_tag({:controller => 'quiz', :action => 'start'}) do%>
+    <p><%= label_tag(:number, 'How many questions do you want in the quiz?', :id => 'question') %></p>
+    <p class="center">
+      <%= select_tag(:number, options_for_select((1..10).map{|x|[x,x]}), :id => 'count') %>
+    </p>
+    <div class="center">
+      <%= submit_tag 'Start!', :class => 'submit' %>
+    </div>
+<% end %>
+<%content_for(:title) do %>
+    Start Quiz
+<% end %>
